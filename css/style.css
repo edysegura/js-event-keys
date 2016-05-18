@@ -1,0 +1,52 @@
+/* 
+ * stylesheets.css
+ * 
+ * Definicoes CSS para pagina index.html
+ * @author: Edy Segura - edy@segura.pro.br
+ *
+ */
+
+table {
+	table-layout:fixed;
+	width:500px;
+	margin-bottom:30px;
+	border:1px solid #666;
+	background:#fff;
+}
+
+caption {
+	font-weight:bold;
+	color:#060;
+	text-align:left;
+}
+
+thead th {
+	text-align:left;
+	background:#C6E2FF;
+}
+
+tbody td {
+	background:#DEF;
+}
+
+td span {
+	font-weight:bold;
+	color:#F00;
+}
+
+p {
+	margin-top: -20px;
+}
+
+h2 + p {
+	margin-bottom: 50px;
+}
+
+p.noscript {
+	border:2px solid #FC0;
+	background:#FFC;
+	color:#000;
+	padding:5px;
+	font-weight:bold;
+	margin:5px;
+}

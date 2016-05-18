@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="author" content="Edy Segura" />
+<meta name="reply-to" content="edysegura@gmail.com" />
+<meta name="description" content="Eventos element.onkeypress, element.keydown e element.keyup" />
+<title>Eventos element.onkeypress, element.keydown e element.keyup</title>
+
+<!-- stylesheet -->
+<link rel="stylesheet" href="css/style.css" type="text/css" title="Padrão" />
+
+<!-- javascript -->
+<script type="text/javascript" src="js/EventUtils.js"></script>
+<script type="text/javascript" src="js/Index.js"></script>
+
+</head>
+<body>
+
+<h1>
+	Eventos 
+	<code>element.onkeypress</code>, 
+	<code>element.onkeydown</code> e 
+	<code>element.onkeyup</code>
+</h1>
+<p>
+	Exemplo do uso dos eventos <code><a href="http://developer.mozilla.org/en/docs/onkeypress">element.onkeypress</a></code>, 
+	<code><a href="http://developer.mozilla.org/en/docs/onkeydown">element.onkeydown</a></code> e 
+	<code><a href="http://developer.mozilla.org/en/docs/onkeyup">element.onkeyup</a></code>.<br />
+	Para mais detalhes veja o código fonte.
+	Se preferir, você pode fazer o <a href="http://files.edysegura.com/labs/eventkey.zip">download</a> 
+	deste <a href="http://files.edysegura.com/labs/eventkey.zip">exemplo</a>.
+</p>
+
+<h2>Pressione qualquer tecla para ver o resultado.</h2>
+<noscript>
+	<p class="noscript">Habilite seu javascript para visualizar este exemplo.</p>
+</noscript>
+
+<!-- tabela para mostrar o evento keypress -->
+<table id="keypress">
+	<caption>Evento element.onkeypress</caption>
+	<thead>
+		<tr>
+			<th>Código (char)</th>
+			<th>Caractere</th>
+			<th>ctrlKey</th>
+			<th>altKey</th>
+			<th>shiftKey</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="5">Aguardando o evento da tecla.</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- tabela para mostrar o evento keydown -->
+<table id="keydown">
+	<caption>Evento element.onkeydown</caption>
+	<thead>
+		<tr>
+			<th>Código (key)</th>
+			<th>ctrlKey</th>
+			<th>altKey</th>
+			<th>shiftKey</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4">Aguardando o evento da tecla.</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- tabela para mostrar o evento keyup -->
+<table id="keyup">
+	<caption>Evento element.onkeyup</caption>
+	<thead>
+		<tr>
+			<th>Código (key)</th>
+			<th>ctrlKey</th>
+			<th>altKey</th>
+			<th>shiftKey</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td colspan="4">Aguardando o evento da tecla.</td>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>
