@@ -1,7 +1,7 @@
 ﻿/**
  * 
  * Exemplo do uso dos eventos keypress, keydown e keyup
- * @author: Edy Segura - edy@segura.pro.br
+ * @author: Edy Segura - edysegura@gmail.com
  *
  */
 var Index = {
