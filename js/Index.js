@@ -17,18 +17,18 @@ var Index = {
 			var tableKeyDown = document.getElementById('keydown');
 			var tableKeyUp = document.getElementById('keyup');
 
-			document.onkeypress = function (e) {
-				Index.buildTable(EventUtils.getEvent(), tableKeyPress);
+			document.addEventListener('keypress', function(e) {
+				Index.buildTable(e, tableKeyPress);
 				e.preventDefault();
-			};
+			});
 
 			document.onkeydown = function (e) {
-				Index.buildTable(EventUtils.getEvent(), tableKeyDown);
+				Index.buildTable(e, tableKeyDown);
 				//e.preventDefault();
 			};
 
 			document.onkeyup = function (e) {
-				Index.buildTable(EventUtils.getEvent(), tableKeyUp);
+				Index.buildTable(e, tableKeyUp);
 				//e.preventDefault();
 			};
 		}
