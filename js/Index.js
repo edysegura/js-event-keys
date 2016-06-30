@@ -22,15 +22,13 @@ var Index = {
 				e.preventDefault();
 			});
 
-			document.onkeydown = function (e) {
+			document.addEventListener('keydown', function (e) {
 				Index.buildTable(e, tableKeyDown);
-				//e.preventDefault();
-			};
+			});
 
-			document.onkeyup = function (e) {
+			document.addEventListener('keyup', function (e) {
 				Index.buildTable(e, tableKeyUp);
-				//e.preventDefault();
-			};
+			});
 		}
 		else {
 			console.log("O componente EventUtils.js é necessário. \nVerifique se o componente está sendo carregado corretamente.");
