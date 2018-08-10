@@ -1,85 +1,72 @@
-﻿/**
- * 
- * Exemplo do uso dos eventos keypress, keydown e keyup
- * @author: Edy Segura - edysegura@gmail.com
- *
- */
-var Index = {
+﻿var Index = {
+  init: function() {
+    Index.setHandles()
+  },
 
-	init: function () {
-		Index.setHandles();
-	},
+  setHandles: function() {
+    if (typeof EventUtils != 'undefined' && EventUtils.getEvent) {
+      var tableKeyPress = document.getElementById('keypress')
+      var tableKeyDown = document.getElementById('keydown')
+      var tableKeyUp = document.getElementById('keyup')
 
+      document.addEventListener('keypress', function(e) {
+        Index.buildTable(e, tableKeyPress)
+        e.preventDefault()
+      })
 
-	setHandles: function () {
-		if (typeof EventUtils != 'undefined' && EventUtils.getEvent) {
-			var tableKeyPress = document.getElementById('keypress');
-			var tableKeyDown = document.getElementById('keydown');
-			var tableKeyUp = document.getElementById('keyup');
+      document.addEventListener('keydown', function(e) {
+        Index.buildTable(e, tableKeyDown)
+      })
 
-			document.addEventListener('keypress', function(e) {
-				Index.buildTable(e, tableKeyPress);
-				e.preventDefault();
-			});
+      document.addEventListener('keyup', function(e) {
+        Index.buildTable(e, tableKeyUp)
+      })
+    } else {
+      console.log(
+        'O componente EventUtils.js é necessário. \nVerifique se o componente está sendo carregado corretamente.'
+      )
+    }
+  },
 
-			document.addEventListener('keydown', function (e) {
-				Index.buildTable(e, tableKeyDown);
-			});
+  buildTable: function(pageEvent, table) {
+    var tableData
 
-			document.addEventListener('keyup', function (e) {
-				Index.buildTable(e, tableKeyUp);
-			});
-		}
-		else {
-			console.log("O componente EventUtils.js é necessário. \nVerifique se o componente está sendo carregado corretamente.");
-		}
-	},
+    //json com os dados do evento
+    if (table.id == 'keypress') {
+      tableData = [
+        pageEvent.charCode ? pageEvent.charCode : pageEvent.keyCode,
+        String.fromCharCode(pageEvent.charCode),
+        pageEvent.ctrlKey,
+        pageEvent.altKey,
+        pageEvent.shiftKey
+      ]
+    } else {
+      tableData = [
+        pageEvent.keyCode,
+        pageEvent.ctrlKey,
+        pageEvent.altKey,
+        pageEvent.shiftKey
+      ]
+    }
 
+    Index.clearTable(table)
 
-	buildTable: function (pageEvent, table) {
-		var tableData;
+    var tbody = table.tBodies[0]
+    var row = tbody.insertRow(tbody.rows.length)
 
-		//json com os dados do evento
-		if (table.id == "keypress") {
+    for (var i = 0; i < tableData.length; i++) {
+      row.insertCell(row.cells.length).innerHTML =
+        tableData[i].toString() != 'true'
+          ? tableData[i]
+          : '<span>' + tableData[i] + '</span>'
+    }
+  },
 
-			tableData = [
-				(pageEvent.charCode) ? pageEvent.charCode : pageEvent.keyCode,
-				String.fromCharCode(pageEvent.charCode),
-				pageEvent.ctrlKey,
-				pageEvent.altKey,
-				pageEvent.shiftKey
-			];
-
-		}
-		else {
-
-			tableData = [
-				pageEvent.keyCode,
-				pageEvent.ctrlKey,
-				pageEvent.altKey,
-				pageEvent.shiftKey
-			];
-
-		}
-
-		Index.clearTable(table);
-
-		var tbody = table.tBodies[0];
-		var row = tbody.insertRow(tbody.rows.length);
-
-		for (var i = 0; i < tableData.length; i++) {
-			row.insertCell(row.cells.length).innerHTML =
-				(tableData[i].toString() != 'true') ? tableData[i] : "<span>" + tableData[i] + "</span>";
-		}
-	},
-
-
-	clearTable: function (table) {
-		table.removeChild(table.tBodies[0]);
-		table.appendChild(document.createElement('tbody'));
-	}
-
-};
+  clearTable: function(table) {
+    table.removeChild(table.tBodies[0])
+    table.appendChild(document.createElement('tbody'))
+  }
+}
 
 //inicializacao
-window.onload = Index.init;
+window.onload = Index.init
