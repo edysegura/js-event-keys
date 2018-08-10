@@ -1,6 +1,6 @@
 # JavaScript Event Keys
 
-An utility to demonstrate the key code in JavaScript keyboard events
+An utility to demonstrate the keyboard events in JavaScript
 
 ## Demo
 
