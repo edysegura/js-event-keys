@@ -4,28 +4,22 @@
   },
 
   setHandles: function() {
-    if (typeof EventUtils != 'undefined' && EventUtils.getEvent) {
-      var tableKeyPress = document.getElementById('keypress')
-      var tableKeyDown = document.getElementById('keydown')
-      var tableKeyUp = document.getElementById('keyup')
+    var tableKeyPress = document.getElementById('keypress')
+    var tableKeyDown = document.getElementById('keydown')
+    var tableKeyUp = document.getElementById('keyup')
 
-      document.addEventListener('keypress', function(e) {
-        Index.buildTable(e, tableKeyPress)
-        e.preventDefault()
-      })
+    document.addEventListener('keypress', function(e) {
+      Index.buildTable(e, tableKeyPress)
+      e.preventDefault()
+    })
 
-      document.addEventListener('keydown', function(e) {
-        Index.buildTable(e, tableKeyDown)
-      })
+    document.addEventListener('keydown', function(e) {
+      Index.buildTable(e, tableKeyDown)
+    })
 
-      document.addEventListener('keyup', function(e) {
-        Index.buildTable(e, tableKeyUp)
-      })
-    } else {
-      console.log(
-        'O componente EventUtils.js é necessário. \nVerifique se o componente está sendo carregado corretamente.'
-      )
-    }
+    document.addEventListener('keyup', function(e) {
+      Index.buildTable(e, tableKeyUp)
+    })
   },
 
   buildTable: function(pageEvent, table) {
