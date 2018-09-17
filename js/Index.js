@@ -8,25 +8,24 @@
     var tableKeyDown = document.getElementById('keydown')
     var tableKeyUp = document.getElementById('keyup')
 
-    document.addEventListener('keypress', function(e) {
-      Index.buildTable(e, tableKeyPress)
-      e.preventDefault()
+    document.addEventListener('keypress', function(event) {
+      Index.buildTable(event, tableKeyPress)
+      event.preventDefault()
     })
 
-    document.addEventListener('keydown', function(e) {
-      Index.buildTable(e, tableKeyDown)
+    document.addEventListener('keydown', function(event) {
+      Index.buildTable(event, tableKeyDown)
     })
 
-    document.addEventListener('keyup', function(e) {
-      Index.buildTable(e, tableKeyUp)
+    document.addEventListener('keyup', function(event) {
+      Index.buildTable(event, tableKeyUp)
     })
   },
 
   buildTable: function(pageEvent, table) {
     var tableData
 
-    //json com os dados do evento
-    if (table.id == 'keypress') {
+    if (table.id === 'keypress') {
       tableData = [
         pageEvent.charCode ? pageEvent.charCode : pageEvent.keyCode,
         String.fromCharCode(pageEvent.charCode),
@@ -50,7 +49,7 @@
 
     for (var i = 0; i < tableData.length; i++) {
       row.insertCell(row.cells.length).innerHTML =
-        tableData[i].toString() != 'true'
+        String(tableData[i]) !== 'true'
           ? tableData[i]
           : '<span>' + tableData[i] + '</span>'
     }
@@ -62,5 +61,4 @@
   }
 }
 
-//inicializacao
 window.onload = Index.init
