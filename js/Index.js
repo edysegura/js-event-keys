@@ -27,8 +27,8 @@
 
     if (table.id === 'keypress') {
       tableData = [
-        event.charCode ? event.charCode : event.keyCode,
-        String.fromCharCode(event.charCode),
+        event.charCode || event.keyCode,
+        event.key,
         event.ctrlKey,
         event.altKey,
         event.shiftKey
