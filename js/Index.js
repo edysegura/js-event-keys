@@ -9,8 +9,8 @@
     var tableKeyUp = document.getElementById('keyup')
 
     document.addEventListener('keypress', function(event) {
-      Index.buildTable(event, tableKeyPress)
       event.preventDefault()
+      Index.buildTable(event, tableKeyPress)
     })
 
     document.addEventListener('keydown', function(event) {
@@ -23,24 +23,13 @@
   },
 
   buildTable: function(event, table) {
-    var tableData
-
-    if (table.id === 'keypress') {
-      tableData = [
-        event.charCode || event.keyCode,
-        event.key,
-        event.ctrlKey,
-        event.altKey,
-        event.shiftKey
-      ]
-    } else {
-      tableData = [
-        event.keyCode,
-        event.ctrlKey,
-        event.altKey,
-        event.shiftKey
-      ]
-    }
+    var tableData = [
+      event.keyCode,
+      event.key,
+      event.ctrlKey,
+      event.altKey,
+      event.shiftKey
+    ]
 
     Index.clearTable(table)
 
