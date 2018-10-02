@@ -22,23 +22,23 @@
     })
   },
 
-  buildTable: function(pageEvent, table) {
+  buildTable: function(event, table) {
     var tableData
 
     if (table.id === 'keypress') {
       tableData = [
-        pageEvent.charCode ? pageEvent.charCode : pageEvent.keyCode,
-        String.fromCharCode(pageEvent.charCode),
-        pageEvent.ctrlKey,
-        pageEvent.altKey,
-        pageEvent.shiftKey
+        event.charCode ? event.charCode : event.keyCode,
+        String.fromCharCode(event.charCode),
+        event.ctrlKey,
+        event.altKey,
+        event.shiftKey
       ]
     } else {
       tableData = [
-        pageEvent.keyCode,
-        pageEvent.ctrlKey,
-        pageEvent.altKey,
-        pageEvent.shiftKey
+        event.keyCode,
+        event.ctrlKey,
+        event.altKey,
+        event.shiftKey
       ]
     }
 
