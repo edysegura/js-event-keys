@@ -1,9 +1,9 @@
 ﻿var Index = {
   init: function() {
-    Index.setHandles()
+    Index.listenKeyboardEvents()
   },
 
-  setHandles: function() {
+  listenKeyboardEvents: function() {
     var tableKeyPress = document.getElementById('keypress')
     var tableKeyDown = document.getElementById('keydown')
     var tableKeyUp = document.getElementById('keyup')
