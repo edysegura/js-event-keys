@@ -24,7 +24,7 @@
 
   buildTable: function(event, table) {
     var tableData = [
-      event.keyCode,
+      event.keyCode, // this is deprecated https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
       event.key,
       event.ctrlKey,
       event.altKey,
