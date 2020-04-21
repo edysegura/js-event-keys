@@ -4,8 +4,23 @@ class Index {
     this.listenToKeyboardEvents()
   }
 
+  bindEvent(eventType) {
+    document.addEventListener(eventType, (event) => {
+      if (eventType === 'keypress') {
+        event.preventDefault()
+      }
+      console.log(`Build table for ${eventType}`)
+    })
+  }
+
   listenToKeyboardEvents() {
-    console.log('To be implemented!')
+    const events = [
+      'keypress',
+      'keydown',
+      'keyup'
+    ]
+
+    events.forEach(this.bindEvent)
   }
 }
 
