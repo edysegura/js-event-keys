@@ -1,53 +1,28 @@
-﻿var Index = {
-  init: function() {
-    Index.listenKeyboardEvents()
-  },
+import { TableService } from './TableService.js'
 
-  listenKeyboardEvents: function() {
-    var tableKeyPress = document.getElementById('keypress')
-    var tableKeyDown = document.getElementById('keydown')
-    var tableKeyUp = document.getElementById('keyup')
+class Index {
 
-    document.addEventListener('keypress', function(event) {
-      event.preventDefault()
-      Index.buildTable(event, tableKeyPress)
+  constructor() {
+    this.listenToKeyboardEvents()
+  }
+
+  bindEvent(eventType) {
+    document.addEventListener(eventType, (event) => {
+      if (eventType === 'keypress') {
+        event.preventDefault()
+      }
+      TableService.buildTable(eventType, event)
     })
+  }
 
-    document.addEventListener('keydown', function(event) {
-      Index.buildTable(event, tableKeyDown)
-    })
-
-    document.addEventListener('keyup', function(event) {
-      Index.buildTable(event, tableKeyUp)
-    })
-  },
-
-  buildTable: function(event, table) {
-    var tableData = [
-      event.keyCode, // this is deprecated https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
-      event.key,
-      event.ctrlKey,
-      event.altKey,
-      event.shiftKey
+  listenToKeyboardEvents() {
+    const events = [
+      'keypress',
+      'keydown',
+      'keyup'
     ]
-
-    Index.clearTable(table)
-
-    var tbody = table.tBodies[0]
-    var row = tbody.insertRow(tbody.rows.length)
-
-    for (var i = 0; i < tableData.length; i++) {
-      row.insertCell(row.cells.length).innerHTML =
-        String(tableData[i]) !== 'true'
-          ? tableData[i]
-          : '<span>' + tableData[i] + '</span>'
-    }
-  },
-
-  clearTable: function(table) {
-    table.removeChild(table.tBodies[0])
-    table.appendChild(document.createElement('tbody'))
+    events.forEach(this.bindEvent)
   }
 }
 
-window.onload = Index.init
+new Index()
